@@ -2,6 +2,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,5 +37,77 @@ public class TTT {
         String strDate = "2018-05-28 19:28:00";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(simpleDateFormat.parse(strDate));
+    }
+
+    @Test
+    public void testCollection() {
+        List<String> stringList = new ArrayList<String>() {
+            {
+                add("111");
+                add("222");
+                add("333");
+                add("444");
+            }
+        };
+
+        stringList.remove(0);
+        stringList.remove(0);
+        stringList.add("111");
+        System.out.println(stringList.get(2));
+    }
+
+
+    List<AA> aaList = new ArrayList<AA>() {{
+        add(new AA());
+    }};
+
+    public void aa() {
+
+        List<Integer> datas = new ArrayList<>();
+        for (AA aa : aaList) {
+            if (aa.getParentId().equals(6)) {
+                datas.add(aa.getId());
+            }
+        }
+
+        getData(datas);
+    }
+
+    public void getData(List<Integer> datas) {
+        if (datas.size() == 0) {
+            return;
+        }
+
+        for (Integer data : datas) {
+            System.out.println(data);
+            List<Integer> datas2 = new ArrayList<>();
+            for (AA aa : aaList) {
+                if (aa.getParentId().equals(data)) {
+                    datas2.add(aa.getId());
+                }
+            }
+            getData(datas2);
+        }
+    }
+
+    class AA {
+        private Integer id;
+        private Integer parentId;
+
+        public Integer getId() {
+            return id;
+        }
+
+        public void setId(Integer id) {
+            this.id = id;
+        }
+
+        public Integer getParentId() {
+            return parentId;
+        }
+
+        public void setParentId(Integer parentId) {
+            this.parentId = parentId;
+        }
     }
 }

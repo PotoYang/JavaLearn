@@ -1,4 +1,4 @@
-package optional;
+package lambda.optional;
 
 import java.util.Optional;
 
