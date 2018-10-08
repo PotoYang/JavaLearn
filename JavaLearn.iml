@@ -19,5 +19,7 @@
     </orderEntry>
     <orderEntry type="library" name="json-lib-2.4-jdk15" level="project" />
     <orderEntry type="library" name="gson-2.8.0" level="project" />
+    <orderEntry type="library" name="jsoup-1.8.3" level="project" />
+    <orderEntry type="library" name="tools" level="project" />
   </component>
 </module>

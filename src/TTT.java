@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -109,5 +110,35 @@ public class TTT {
         public void setParentId(Integer parentId) {
             this.parentId = parentId;
         }
+    }
+
+
+    @Test
+    public void testReflect() {
+        //获取类的字节码文件对象
+        try {
+            Class c = Class.forName("Student");
+            Field[] f = c.getDeclaredFields();
+            for (Field fie : f) {
+                System.out.println(fie.getName());
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void sub(){
+        String imgUrl = "http://127.0.0.1:8080/cms/ReadAddress/1479805098158.jpg";
+
+        String image = imgUrl.substring(0, imgUrl.lastIndexOf("/"));
+
+        System.out.println(image);
+    }
+
+    @Test
+    public void insertZero(){
+        String newString = String.format("%02d", 15);
+        System.out.println("newString === "+newString);
     }
 }

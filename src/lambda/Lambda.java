@@ -1,5 +1,7 @@
 package lambda;
 
+import org.junit.Test;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -85,7 +87,40 @@ public class Lambda {
         System.out.println(String.format("A name starting with %s: %s", startingLetter, foundName.orElse("No name found")));
 
         String namesStr = String.join(",", names);
+    }
 
+    @Test
+    public void test00() {
+        List<Building> buildings = new ArrayList<Building>() {{
+            add(new Building(10, 5));
+            add(new Building(5, 2));
+            add(new Building(4, 1));
+        }};
+        int sumLights = buildings.stream().mapToInt(Building::getLights).sum();
+        int sumFloors = buildings.stream().mapToInt(Building::getFloors).sum();
+//        IntSummaryStatistics stats = primes.stream().mapToInt((x) -> x).summaryStatistics();
+//        System.out.println("Highest prime number in List : " + stats.getMax());
+//        System.out.println("Lowest prime number in List : " + stats.getMin());
+//        System.out.println("Sum of all prime numbers : " + stats.getSum());
+//        System.out.println("Average of all prime numbers : " + stats.getAverage());
+        System.out.println(sumLights + "  " + sumFloors);
+    }
 
+    class Building {
+        private Integer lights;
+        private Integer floors;
+
+        Building(Integer lights, Integer floors) {
+            this.lights = lights;
+            this.floors = floors;
+        }
+
+        Integer getLights() {
+            return lights;
+        }
+
+        Integer getFloors() {
+            return floors;
+        }
     }
 }
