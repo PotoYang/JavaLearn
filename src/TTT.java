@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
@@ -128,7 +129,7 @@ public class TTT {
     }
 
     @Test
-    public void sub(){
+    public void sub() {
         String imgUrl = "http://127.0.0.1:8080/cms/ReadAddress/1479805098158.jpg";
 
         String image = imgUrl.substring(0, imgUrl.lastIndexOf("/"));
@@ -137,8 +138,85 @@ public class TTT {
     }
 
     @Test
-    public void insertZero(){
+    public void insertZero() {
         String newString = String.format("%02d", 15);
-        System.out.println("newString === "+newString);
+        System.out.println("newString === " + newString);
+    }
+
+    A jsonObject;
+
+    @Test
+    public void generateTree() {
+        String str = "{\"label\":\"A\",\"child\":[{\"label\":\"AA\",\"child\":[{\"label\":\"AAA\"},{\"label\":\"AAB\"}]},{\"label\":\"AB\"}]}";
+
+        A a = new A();
+
+        List<A> aaList = new ArrayList<>();
+        A aaa = new A();
+        aaa.setLabel("AAA");
+        aaa.setChild(null);
+        aaList.add(aaa);
+        A aab = new A();
+        aab.setLabel("AAB");
+        aab.setChild(null);
+        aaList.add(aab);
+
+        List<A> aList = new ArrayList<>();
+        A aa = new A();
+        A ab = new A();
+        aa.setLabel("AA");
+        aa.setChild(aaList);
+        aList.add(aa);
+        ab.setLabel("AB");
+        ab.setChild(null);
+        aList.add(ab);
+
+        a.setLabel("A");
+        a.setChild(aList);
+
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(a));
+
+        jsonObject = gson.fromJson(str, A.class);
+
+        getDigui(jsonObject);
+
+        System.out.println("把JSON字符串转为对象///  " + jsonObject.toString());
+    }
+
+    private void getDigui(A z) {
+        if (z.getChild() == null) {
+
+        }
+//        jsonObject
+    }
+
+    class A {
+        private String label;
+        private List<A> child;
+
+        public String getLabel() {
+            return label;
+        }
+
+        void setLabel(String label) {
+            this.label = label;
+        }
+
+        public List<A> getChild() {
+            return child;
+        }
+
+        public void setChild(List<A> child) {
+            this.child = child;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "label='" + label + '\'' +
+                    ", child=" + child +
+                    '}';
+        }
     }
 }
