@@ -1,0 +1,12 @@
+
+>squid:S2325%" Make "client" a "static" method.(¥¿þë8âÞäàð,
+Msquid:S1481&"/Remove this unused "httpClient" local variable.(ž›®À8²¥æàð,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(î¡£Òùÿÿÿÿ
+1squid:S2096"Remove this throws clause.(œû¿Ø
+Xsquid:S1854(":Remove this useless assignment to local variable "method".(ž¼Ü¸8×þéàð,
+Wsquid:UnusedPrivateMethod%"+Remove this unused private "client" method.(¥¿þë8áÞäàð,
+o"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(œû¿Ø
+v"squid:LeftCurlyBraceStartLineCheck%"AMove this left curly brace to the beginning of next line of code.(¥¿þë8âÞäàð,
+t"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(´ôßéüÿÿÿÿ
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(›¿ƒ×ùÿÿÿÿ
+Isquid:S1481'"+Remove this unused "method" local variable.(Ãîé²8×þéàð,

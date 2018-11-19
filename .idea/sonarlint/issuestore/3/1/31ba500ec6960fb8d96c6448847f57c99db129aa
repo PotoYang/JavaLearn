@@ -1,0 +1,106 @@
+
+Jsquid:S2039—"3Explicitly declare the visibility for "jsonObject".(É½ÇT
+csquid:S3242S"GUse 'java.util.Collection' here; it is a more general type than 'List'.(ØÕå¦ùÿÿÿÿ
+u"squid:LeftCurlyBraceStartLineCheckù"AMove this left curly brace to the beginning of next line of code.(çÆ ›øÿÿÿÿ
+t"squid:LeftCurlyBraceStartLineCheckG"AMove this left curly brace to the beginning of next line of code.(þ÷®Êÿÿÿÿÿ
+o"squid:LeftCurlyBraceStartLineCheck’"AMove this left curly brace to the beginning of next line of code.(‚¹Þ6
+dsquid:S00103›"KSplit this 143 characters long line (which is greater than 120 authorized).(žÐËª
+u"squid:LeftCurlyBraceStartLineCheck•"AMove this left curly brace to the beginning of next line of code.(æ­üÿÿÿÿ
+Esquid:S2658~")Remove this use of dynamic class loading.(óµ­’ÿÿÿÿÿ
+p
+squid:S109"UAssign this magic number 0.05 to a well-named constant, and use the constant instead.(„ú¡£ýÿÿÿÿ
+v
+squid:S109–"ZAssign this magic number 123456789 to a well-named constant, and use the constant instead.(çÞ–ƒýÿÿÿÿ
+Usquid:S1155T">Use isEmpty() to check whether the collection is empty or not.(Ó¹Î®
+p"squid:LeftCurlyBraceStartLineCheckŒ"AMove this left curly brace to the beginning of next line of code.(Ò¬²´
+Vsquid:S1258d":Add a constructor to the class, or provide default values.(ÃáÓÚüÿÿÿÿ
+Tsquid:S1854î"7Remove this useless assignment to local variable "end".(ºžÃÕøÿÿÿÿ
+j
+squid:S109“"SAssign this magic number 15 to a well-named constant, and use the constant instead.(ÚÜäž
+Rsquid:S2148–"5Add underscores to this numeric value for readability(çÞ–ƒýÿÿÿÿ
+p"squid:LeftCurlyBraceStartLineCheckš"AMove this left curly brace to the beginning of next line of code.(ýø‹´
+t"squid:LeftCurlyBraceStartLineCheckK"AMove this left curly brace to the beginning of next line of code.(²îÜÒüÿÿÿÿ
+o"squid:LeftCurlyBraceStartLineCheck["AMove this left curly brace to the beginning of next line of code.(“õñ›
+o"squid:LeftCurlyBraceStartLineCheckT"AMove this left curly brace to the beginning of next line of code.(Ó¹Î®
+o"squid:LeftCurlyBraceStartLineCheck3"AMove this left curly brace to the beginning of next line of code.(à‹–ø
+u"squid:LeftCurlyBraceStartLineCheck€"AMove this left curly brace to the beginning of next line of code.(Þœó”ýÿÿÿÿ
+Osquid:S1213—"8Move this variable to comply with Java Code Conventions.(É½ÇT
+n"squid:LeftCurlyBraceStartLineCheckh"AMove this left curly brace to the beginning of next line of code.(†¾ÐH
+Hsquid:S1612",Replace this lambda with a method reference.(„ú¡£ýÿÿÿÿ
+t"squid:LeftCurlyBraceStartLineCheck}"AMove this left curly brace to the beginning of next line of code.(¡»¢üùÿÿÿÿ
+p"squid:LeftCurlyBraceStartLineCheck‰"AMove this left curly brace to the beginning of next line of code.(ßšÞœ
+n
+squid:S109„"RAssign this magic number 5 to a well-named constant, and use the constant instead.(ú‰³—üÿÿÿÿ
+k
+squid:S109"UAssign this magic number 10.0 to a well-named constant, and use the constant instead.(ªÒ¨Ô
+Nsquid:S1213C"8Move this variable to comply with Java Code Conventions.(ÕŠ²4
+|"squid:LeftCurlyBraceStartLineCheck¡"AMove this left curly brace to the beginning of next line of code.(æ»¥úþÿÿÿÿ8­¹åÜð,
+hsquid:CommentedOutCodeLineÁ"<This block of commented-out lines of code should be removed.(Õ®’íøÿÿÿÿ
+p"squid:LeftCurlyBraceStartLineCheckÖ"AMove this left curly brace to the beginning of next line of code.(Ÿ¢«ï
+t"squid:LeftCurlyBraceStartLineCheckd"AMove this left curly brace to the beginning of next line of code.(ÃáÓÚüÿÿÿÿ
+p"squid:LeftCurlyBraceStartLineCheckƒ"AMove this left curly brace to the beginning of next line of code.(ýàÑÎ
+p"squid:LeftCurlyBraceStartLineCheckÎ"AMove this left curly brace to the beginning of next line of code.(Ã™ÄÏ
+squid:S1186""€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ì¬¿–ùÿÿÿÿ
+c#squid:RightCurlyBraceStartLineCheckE"/Move this closing curly brace to the next line.(ò™à¯þÿÿÿÿ
+o"squid:LeftCurlyBraceStartLineCheckJ"AMove this left curly brace to the beginning of next line of code.(“õñ›
+@squid:S1172À"(Remove this unused method parameter "z".(š»ôâ
+o"squid:LeftCurlyBraceStartLineCheck%"AMove this left curly brace to the beginning of next line of code.(ÅÂ¡Ô
+o"squid:LeftCurlyBraceStartLineCheck\"AMove this left curly brace to the beginning of next line of code.(œòÝµ
+t"squid:LeftCurlyBraceStartLineCheck{"AMove this left curly brace to the beginning of next line of code.(ãÐÀ‹ýÿÿÿÿ
+o"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(Çµí‘
+9squid:S2694Î"!Make this a "static" inner class.(Ã™ÄÏ
+t"squid:LeftCurlyBraceStartLineCheckS"AMove this left curly brace to the beginning of next line of code.(ØÕå¦ùÿÿÿÿ
+t"squid:LeftCurlyBraceStartLineCheck2"AMove this left curly brace to the beginning of next line of code.(–æØ÷üÿÿÿÿ
+p"squid:LeftCurlyBraceStartLineCheckÞ"AMove this left curly brace to the beginning of next line of code.(Ì‹ÐØ
+p"squid:LeftCurlyBraceStartLineCheck…"AMove this left curly brace to the beginning of next line of code.(¦Õýú
+Esquid:S2039C"/Explicitly declare the visibility for "aaList".(ÕŠ²4
+=squid:S2694d"!Make this a "static" inner class.(ÃáÓÚüÿÿÿÿ
+p"squid:LeftCurlyBraceStartLineCheckò"AMove this left curly brace to the beginning of next line of code.(ìêþÝ
+csquid:S1774"GConvert this usage of the ternary operator to an "if"/"else" structure.(è€Á‹ÿÿÿÿÿ
+p"squid:LeftCurlyBraceStartLineCheckÀ"AMove this left curly brace to the beginning of next line of code.(š»ôâ
+o"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(¨±Œ 
+osquid:S1171C"YMove the contents of this initializer to a standard constructor or to field initializers.(ÕŠ²4
+m
+squid:S109K"RAssign this magic number 6 to a well-named constant, and use the constant instead.(²îÜÒüÿÿÿÿ
+Bsquid:S3599C",Use another way to initialize this instance.(ÕŠ²4
+t"squid:LeftCurlyBraceStartLineCheck+"AMove this left curly brace to the beginning of next line of code.(¿“Üðýÿÿÿÿ
+Nsquid:S1449—"6Define the locale to be used in this String operation.(°” ¸
+o"squid:LeftCurlyBraceStartLineCheck "AMove this left curly brace to the beginning of next line of code.(à”èé
+u"squid:LeftCurlyBraceStartLineCheckƒ"AMove this left curly brace to the beginning of next line of code.(š§¥ýÿÿÿÿ
+6squid:S2384Û"Return a copy of "child".(ä¯òŽüÿÿÿÿ
+@squid:S1148„"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+u"squid:LeftCurlyBraceStartLineCheckû"AMove this left curly brace to the beginning of next line of code.(ÙÇáÊÿÿÿÿÿ
+k
+squid:S109"UAssign this magic number 30.0 to a well-named constant, and use the constant instead.(ªÒ¨Ô
+w"squid:LeftCurlyBraceStartLineCheck¥"AMove this left curly brace to the beginning of next line of code.(žÈ¼Ù8Òæ’Ýð,
+i
+squid:S109…"RAssign this magic number 5 to a well-named constant, and use the constant instead.(¦Õýú
+n"squid:LeftCurlyBraceStartLineCheckC"AMove this left curly brace to the beginning of next line of code.(ÕŠ²4
+n
+squid:S109—"WAssign this magic number 1024.0 to a well-named constant, and use the constant instead.(°” ¸
+w"squid:LeftCurlyBraceStartLineCheckœ"AMove this left curly brace to the beginning of next line of code.(½™†ç8€·›Úð,
+bsquid:S3027Œ"JPut single-quotes around '/' to use the faster "lastIndexOf(char)" method.(÷…Ü¤
+t"squid:LeftCurlyBraceStartLineCheckX"AMove this left curly brace to the beginning of next line of code.(‰€½£þÿÿÿÿ
+p"squid:LeftCurlyBraceStartLineCheckã"AMove this left curly brace to the beginning of next line of code.(Á»›ê
+q2squid:RightCurlyBraceDifferentLineAsNextBlockCheckƒ"2Move this "catch" keyword to a new dedicated line.(ýàÑÎ
+u"squid:LeftCurlyBraceStartLineCheckì"AMove this left curly brace to the beginning of next line of code.(ò¬Öüÿÿÿÿÿ
+h
+squid:S109?"RAssign this magic number 2 to a well-named constant, and use the constant instead.(Î‚¦²
+u"squid:LeftCurlyBraceStartLineCheckÒ"AMove this left curly brace to the beginning of next line of code.(Í†„¦úÿÿÿÿ
+Csquid:S35993",Use another way to initialize this instance.(à‹–ø
+t"squid:LeftCurlyBraceStartLineCheckl"AMove this left curly brace to the beginning of next line of code.(¦™é‡þÿÿÿÿ
+p"squid:LeftCurlyBraceStartLineCheckÚ"AMove this left curly brace to the beginning of next line of code.(´”Ù¾
+k
+squid:S109"UAssign this magic number 20.0 to a well-named constant, and use the constant instead.(ªÒ¨Ô
+o"squid:LeftCurlyBraceStartLineCheckt"AMove this left curly brace to the beginning of next line of code.(â¯’…
+o"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(îý™
+o"squid:LeftCurlyBraceStartLineCheckp"AMove this left curly brace to the beginning of next line of code.(Ã¹»Á
+bsquid:HiddenFieldCheckŸ":Rename "aaList" which hides the field declared at line 67.(º´ùºüÿÿÿÿ
+5squid:S2384ß"Store a copy of "child".(¬ÎÉœýÿÿÿÿ
+Rsquid:S1258Î":Add a constructor to the class, or provide default values.(Ã™ÄÏ
+n
+squid:S109—"WAssign this magic number 1024.0 to a well-named constant, and use the constant instead.(°” ¸
+Esquid:S1481î"(Remove this unused "end" local variable.(ºžÃÕøÿÿÿÿ
+t"squid:LeftCurlyBraceStartLineCheck""AMove this left curly brace to the beginning of next line of code.(ì¬¿–ùÿÿÿÿ
+usquid:S11714"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
+=squid:S1166ƒ"%Either log or rethrow this exception.(ýàÑÎ

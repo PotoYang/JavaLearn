@@ -1,0 +1,11 @@
+
+o"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(¯ğîê
+˜squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Îºîì
+Csquid:IndentationCheck"!Make this line start at column 5.(¥¹ï
+o"squid:LeftCurlyBraceStartLineCheck "AMove this left curly brace to the beginning of next line of code.(¿¹îÂ
+t"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(Ì³°øÿÿÿÿ
+Hsquid:IndentationCheck"!Make this line start at column 3.(ú›Šøøÿÿÿÿ
+t"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(ú›Šøøÿÿÿÿ
+˜squid:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¿¹îÂ
+o"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(Îºîì
+squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ì³°øÿÿÿÿ

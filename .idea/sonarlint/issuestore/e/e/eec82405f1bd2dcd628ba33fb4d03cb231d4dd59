@@ -1,0 +1,22 @@
+
+t"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(ı£Çúÿÿÿÿ
+o"squid:LeftCurlyBraceStartLineCheck!"AMove this left curly brace to the beginning of next line of code.(î¶÷×
+T
+squid:S106'"9Replace this use of System.out or System.err by a logger.(ÿÌñüÿÿÿÿ
+Hsquid:IndentationCheck"!Make this line start at column 3.(ú›Šøøÿÿÿÿ
+Csquid:IndentationCheck"!Make this line start at column 5.(Ù†Œ˜
+Csquid:IndentationCheck"!Make this line start at column 5.(šåá
+Hsquid:IndentationCheck"!Make this line start at column 5.(àïáÖüÿÿÿÿ
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(àïáÖüÿÿÿÿ
+Hsquid:IndentationCheck'"!Make this line start at column 5.(ÿÌñüÿÿÿÿ
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(šåá
+csquid:S00103&"KSplit this 141 characters long line (which is greater than 120 authorized).(çñŞº
+o"squid:LeftCurlyBraceStartLineCheck&"AMove this left curly brace to the beginning of next line of code.(çñŞº
+t"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(ú›Šøøÿÿÿÿ
+Hsquid:IndentationCheck""!Make this line start at column 5.(Şˆ¸¸úÿÿÿÿ
+o"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(œŒ˜ä
+T
+squid:S106""9Replace this use of System.out or System.err by a logger.(Şˆ¸¸úÿÿÿÿ
+o"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(««¹‘

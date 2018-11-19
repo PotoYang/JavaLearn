@@ -4,8 +4,13 @@ import org.junit.Test;
 import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -184,11 +189,18 @@ public class TTT {
         System.out.println("把JSON字符串转为对象///  " + jsonObject.toString());
     }
 
-    private void getDigui(A z) {
-        if (z.getChild() == null) {
-
+    private A getDigui(A z) {
+        /*if (z.getChild().isEmpty()) {
+            return;
         }
-//        jsonObject
+        List<A> aChildList = new ArrayList<>();
+        for (A aChild:aChildList){
+            if (!aChild.getChild().isEmpty()){
+                getDigui(aChild);
+            }
+        }
+        return ;*/
+        return null;
     }
 
     class A {
@@ -217,6 +229,70 @@ public class TTT {
                     "label='" + label + '\'' +
                     ", child=" + child +
                     '}';
+        }
+    }
+
+    @Test
+    public void testLocalDateParseNull() {
+        String endDate = null;
+        LocalDate end = LocalDate.parse(endDate);
+    }
+
+    @Test
+    public void testClassLoader() {
+        System.out.println(Thread.currentThread().getContextClassLoader());
+        System.out.println(TTT.class.getClassLoader());
+        System.out.println(ClassLoader.getSystemClassLoader());
+    }
+
+    @Test
+    public void testEnum() {
+        Definition[] definitions = Definition.values();
+        for (Definition definition : definitions) {
+            System.out.println(definition.getIndex() + " " + definition.getName());
+        }
+
+        System.out.println(Definition.HIGH_DEFINITION.getIndex());
+    }
+
+    @Test
+    public void testArrayList() {
+        List<Integer> sumList = new ArrayList<>(5);
+        for (int j = 0; j < 5; j++) {
+            sumList.add(0);
+        }
+        sumList.forEach(System.out::println);
+    }
+
+    @Test
+    public void testLocalDateTimeToCron() {
+        ZoneId zone = ZoneId.systemDefault();
+        Instant instant = LocalDateTime.now().atZone(zone).toInstant();
+        String cronDateFormat = "ss mm HH dd MM ? yyyy";
+        String cron = new SimpleDateFormat(cronDateFormat).format(Date.from(instant));
+        System.out.println(cron);
+    }
+
+    @Test
+    public void testRight() {
+        long a = 123456789;
+        Float f = Float.parseFloat(String.format("%.2f", a / 1024.0 / 1024.0));
+        System.out.println(f);
+    }
+
+    @Test
+    public void testCrypt() {
+        String a = "1-1-2-3-4";
+        String secret = "qwertyuiopasdfghjklzxcvbnm";
+        byte[] aa = a.getBytes();
+        byte[] bb = new byte[aa.length];
+        for (int i = 0; i < aa.length; i++) {
+            bb[i] = (byte) (aa[i] ^ secret.getBytes()[i]);
+        }
+        System.out.println();
+        for (int i = 0; i < bb.length; i++) {
+            System.out.print(bb[i] + " ");
+            System.out.print((char) (byte) (bb[i] ^ secret.getBytes()[i]));
         }
     }
 }
