@@ -1,0 +1,153 @@
+[
+  {
+    "id": 130,
+    "text": "深圳市",
+    "isCamera": 1,
+    "children": [
+      {
+        "id": 192,
+        "text": "ceshi",
+        "isCamera": 0
+      },
+      {
+        "id": 195,
+        "text": "赵磊测试",
+        "isCamera": 0
+      },
+      {
+        "id": 131,
+        "text": "罗湖区",
+        "isCamera": 1,
+        "children": [
+          {
+            "id": 132,
+            "text": "莲塘",
+            "isCamera": 1,
+            "children": [
+              {
+                "id": 133,
+                "text": "茁壮网络",
+                "isCamera": 1,
+                "children": [
+                  {
+                    "id": 88,
+                    "text": "台式海康",
+                    "isCamera": 0
+                  },
+                  {
+                    "id": 92,
+                    "text": "高端摄像头",
+                    "isCamera": 0
+                  },
+                  {
+                    "id": 95,
+                    "text": "测试拍摄",
+                    "isCamera": 0
+                  },
+                  {
+                    "id": 106,
+                    "text": "liubl",
+                    "isCamera": 0
+                  },
+                  {
+                    "id": 110,
+                    "text": "一楼演讲厅",
+                    "isCamera": 0
+                  },
+                  {
+                    "id": 111,
+                    "text": "一楼大门",
+                    "isCamera": 0
+                  },
+                  {
+                    "id": 135,
+                    "text": "技术研发",
+                    "isCamera": 1,
+                    "children": [
+                      {
+                        "id": 54,
+                        "text": "有声音摄像头吴传奇",
+                        "isCamera": 0
+                      },
+                      {
+                        "id": 70,
+                        "text": "四楼楼梯",
+                        "isCamera": 0
+                      }
+                    ]
+                  },
+                  {
+                    "id": 141,
+                    "text": "解决方案",
+                    "isCamera": 1,
+                    "children": [
+                      {
+                        "id": 58,
+                        "text": "五楼过道1",
+                        "isCamera": 0
+                      }
+                    ]
+                  },
+                  {
+                    "id": 148,
+                    "text": "三楼1",
+                    "isCamera": 1,
+                    "children": [
+                      {
+                        "id": 60,
+                        "text": "四楼后过道",
+                        "isCamera": 0
+                      },
+                      {
+                        "id": 74,
+                        "text": "三楼过道3",
+                        "isCamera": 0
+                      },
+                      {
+                        "id": 78,
+                        "text": "三楼过道4",
+                        "isCamera": 0
+                      },
+                      {
+                        "id": 79,
+                        "text": "三楼过道",
+                        "isCamera": 0
+                      },
+                      {
+                        "id": 89,
+                        "text": "海康声音",
+                        "isCamera": 0
+                      },
+                      {
+                        "id": 90,
+                        "text": "hdmi编码器",
+                        "isCamera": 0
+                      },
+                      {
+                        "id": 96,
+                        "text": "敏姐摄像头",
+                        "isCamera": 0
+                      }
+                    ]
+                  },
+                  {
+                    "id": 154,
+                    "text": "四楼-仙阁",
+                    "isCamera": 1,
+                    "children": [
+                      {
+                        "id": 77,
+                        "text": "四楼4",
+                        "isCamera": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
