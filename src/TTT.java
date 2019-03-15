@@ -1,8 +1,11 @@
 import com.google.gson.Gson;
 import org.junit.Test;
 
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.lang.reflect.Field;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -322,12 +325,6 @@ public class TTT {
     }
 
     @Test
-    public void testException() {
-        List<Integer> a = new ArrayList<>();
-        a.size();
-    }
-
-    @Test
     public void testNum() {
         Float f = 12345.65F;
         System.out.println(f / 1024);
@@ -510,5 +507,107 @@ public class TTT {
         stringBuilder.append(String.format("%02d", seconds));
         // 00:10:02
         System.out.println(stringBuilder.toString());
+    }
+
+    @Test
+    public void testMd5() {
+
+        //定义一个字节数组
+        byte[] secretBytes = null;
+        try {
+            File file = new File("F:/test/1.mp4");
+            InputStream inputStream = new FileInputStream(file);
+            byte[] bytes = new byte[]{};
+            int len = inputStream.read(bytes, 0, (int) file.length());
+            if (len != file.length()) {
+                throw new IOException("不完整");
+            }
+            //            OutputStream outputStream = new FileOutputStream(file);
+//            ByteArrayInputStream inputStream = new ByteArrayInputStream()
+            // 生成一个MD5加密计算摘要
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //对字符串进行加密
+            md.update(bytes);
+            //获得加密后的数据
+            secretBytes = md.digest();
+            // 将加密后的数据转换为16进制数字
+            StringBuilder md5code = new StringBuilder(new BigInteger(1, secretBytes).toString(16));// 16进制数字
+            // 如果生成数字未满32位，需要前面补0
+            for (int i = 0; i < 32 - md5code.length(); i++) {
+                md5code.insert(0, "0");
+            }
+            System.out.println(md5code);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("没有md5这个算法！");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testMd52() {
+        BigInteger bi = null;
+        try {
+            byte[] buffer = new byte[8192];
+            int len = 0;
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            File f = new File("F:/test/1.mp4");
+            FileInputStream fis = new FileInputStream(f);
+            while ((len = fis.read(buffer)) != -1) {
+                md.update(buffer, 0, len);
+            }
+            fis.close();
+            byte[] b = md.digest();
+            bi = new BigInteger(1, b);
+            // 前端
+            // 6b24b8a0759c5705bf3a999ac47a1449
+            // 后端
+            // 6b24b8a0759c5705bf3a999ac47a1449
+        } catch (NoSuchAlgorithmException | IOException e) {
+            e.printStackTrace();
+        }
+        assert bi != null;
+        System.out.println(bi.toString(16));
+    }
+
+    @Test
+    public void testRandomAccessFile() {
+        try {
+            // 创建 conf 文件，记录文件上传分片数量
+            File confFile = new File("F:/data/uploads/0c3e3f279a2742146ac1288403e9530b.conf");
+            RandomAccessFile accessConfFile = new RandomAccessFile(confFile, "rw");
+            // 把该分段标记为 true 表示完成
+            accessConfFile.setLength(146);
+            accessConfFile.seek(0);
+            accessConfFile.write(0);
+            accessConfFile.seek(10);
+            accessConfFile.write(0);
+            accessConfFile.seek(20);
+            accessConfFile.write(0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testCreateDirectory() {
+        // 本地存盘路径：F:/data/uploads/{md5}/
+        String md5 = "123";
+        String uploadDirPath = "F:/data/uploads/" + md5 + "/";
+        // 以分片名称存储分片数据(如：0,1,2,3,4...)
+        File tmpDir = new File(uploadDirPath);
+        if (!tmpDir.exists()) {
+            if (!tmpDir.mkdirs()) {
+                System.out.println(uploadDirPath + " create failed!");
+            }
+        }
+    }
+
+
+    @Test
+    public void testException() {
+        ArrayList arrayList = new ArrayList();
+        ListIterator listIterator = arrayList.listIterator();
+        listIterator.previous();
     }
 }
