@@ -27,7 +27,9 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-bold, .icon-italic, .icon-quote, .icon-unordered-list, .icon-ordered-list, .icon-link, .icon-image, .icon-play, .icon-music, .icon-contract, .icon-fullscreen, .icon-question, .icon-info, .icon-undo, .icon-redo, .icon-code, .icon-preview {
+.icon-bold, .icon-italic, .icon-quote, .icon-unordered-list, .icon-ordered-list, .icon-link,
+.icon-image, .icon-play, .icon-music, .icon-contract, .icon-fullscreen, .icon-question,
+.icon-info, .icon-undo, .icon-redo, .icon-code, .icon-preview, .icon-save{
     font-family: 'icomoon';
     speak: none;
     font-style: normal;
@@ -40,6 +42,10 @@ you can use the generic selector below, but it's slower:
 
 .icon-bold:before {
     content: "\e000";
+}
+
+.icon-preview:before {
+    content: "\e002";
 }
 
 .icon-italic:before {
@@ -102,14 +108,13 @@ you can use the generic selector below, but it's slower:
     content: "\e011";
 }
 
-.icon-preview:before {
-    content: "\e002";
+.icon-save:before {
+    content: "\e012";
 }
 
 /* BASICS */
-
 .CodeMirror {
-    height: 300px;
+    height: 500px;
 }
 
 .CodeMirror-scroll {
@@ -437,7 +442,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 }
 
 .CodeMirror {
-    height: 450px;
+    height: 500px;
 }
 
 :-webkit-full-screen {
@@ -456,6 +461,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 
 .editor-wrapper {
     font: 16px/1.62 "Helvetica Neue", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+    background-color: #eeeeee;
     color: #2c3e50;
 }
 

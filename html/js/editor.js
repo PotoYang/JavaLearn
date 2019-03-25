@@ -1,8 +1,4 @@
-/**
- 项目JS主入口
- 以依赖layui的layer和form模块为例
- **/
-layui.define("editor", function (global) {
+(function ($) {
 // CodeMirror version 3.15
 //
 // CodeMirror is the only global var we claim
@@ -7744,12 +7740,14 @@ layui.define("editor", function (global) {
     var shortcuts = {
         'Cmd-B': toggleBold,
         'Cmd-I': toggleItalic,
-        'Cmd-Y': toggleCode,
         'Cmd-K': drawLink,
         'Cmd-Alt-I': drawImage,
         "Cmd-'": toggleBlockquote,
         'Cmd-Alt-L': toggleOrderedList,
-        'Cmd-L': toggleUnOrderedList
+        'Cmd-L': toggleUnOrderedList,
+        'Cmd-Z': undo,
+        'Cmd-Shift-Z': redo,
+        'Cmd-S': saveContent
     };
 
 
@@ -7934,40 +7932,6 @@ layui.define("editor", function (global) {
     }
 
     /**
-     * Action for toggling ` -> ·.
-     */
-    function toggleCode(editor) {
-        var cm = editor.codemirror;
-        var stat = getState(cm);
-
-        var text;
-        var start = '`';
-        var end = '`';
-
-        var startPoint = cm.getCursor('start');
-        var endPoint = cm.getCursor('end');
-        if (stat.code) {
-            text = cm.getLine(startPoint.line);
-            start = text.slice(0, startPoint.ch);
-            end = text.slice(startPoint.ch);
-            start = start.replace(/^(.*)?(`)(\S+.*)?$/, '$1$3');
-            end = end.replace('`', '');
-            startPoint.ch -= 1;
-            endPoint.ch -= 1;
-            cm.setLine(startPoint.line, start + end);
-        } else {
-            text = cm.getSelection();
-            cm.replaceSelection(start + text + end);
-
-            startPoint.ch += 1;
-            endPoint.ch += 1;
-        }
-        cm.setSelection(startPoint, endPoint);
-        cm.focus();
-    }
-
-
-    /**
      * Action for toggling blockquote.
      */
     function toggleBlockquote(editor) {
@@ -8031,6 +7995,23 @@ layui.define("editor", function (global) {
         var cm = editor.codemirror;
         cm.redo();
         cm.focus();
+    }
+
+    /**
+     * Save Content
+     */
+    function saveContent(editor) {
+        var cm = editor.codemirror;
+        // alert(cm.getValue());
+        // myAlert("Info", "Success", function () {
+        //     console.log("123");
+        // });
+        // alert("Info", "Success", function () {
+        //
+        // })
+        // $.alerts._show("123", "123", null, 'alert', function () {
+        //
+        // });
     }
 
     /**
@@ -8132,29 +8113,6 @@ layui.define("editor", function (global) {
         return count;
     }
 
-    var toolbar = [
-        {name: 'bold', action: toggleBold, shortcut: 'Toggle Bold(Cmd-B)'},
-        {name: 'italic', action: toggleItalic, shortcut: 'Toggle Italic(Cmd-I)'},
-        '|',
-
-        {name: 'quote', action: toggleBlockquote, shortcut: 'toggle Blockquote(Cmd-\')'},
-        {name: 'unordered-list', action: toggleUnOrderedList, shortcut: 'Toggle UnorderList(Cmd-Alt-L)'},
-        {name: 'ordered-list', action: toggleOrderedList, shortcut: 'Toggle OrderList(Cmd-L)'},
-        '|',
-
-        {name: 'link', action: drawLink, shortcut: 'Insert Link(Cmd-K)'},
-        {name: 'image', action: drawImage, shortcut: 'Insert Image(Cmd-Alt-I)'},
-        // {name: 'play', action: drawImage, shortcut: 'Insert Video'},
-        // {name: 'music', action: drawImage, shortcut: 'Insert Audio'},
-        // {name: 'code', action: drawImage, shortcut: 'Insert Code(Cmd-Q)'},
-        '|',
-
-        // {name: 'undo', action: 'http://lab.lepture.com/editor/markdown'},
-        // {name: 'redo', action: 'http://lab.lepture.com/editor/markdown'},
-        {name: 'preview', action: togglePreview, shortcut: 'Toggle Preview'},
-        {name: 'fullscreen', action: toggleFullScreen, shortcut: 'Toggle FullScreen'}
-    ];
-
     /**
      * Interface of Editor.
      */
@@ -8184,7 +8142,29 @@ layui.define("editor", function (global) {
     /**
      * Default toolbar elements.
      */
-    Editor.toolbar = toolbar;
+    Editor.toolbar = [
+        {name: 'bold', action: toggleBold, shortcut: 'Toggle Bold(Cmd-B)'},
+        {name: 'italic', action: toggleItalic, shortcut: 'Toggle Italic(Cmd-I)'},
+        '|',
+
+        {name: 'quote', action: toggleBlockquote, shortcut: 'toggle Blockquote(Cmd-\')'},
+        {name: 'unordered-list', action: toggleUnOrderedList, shortcut: 'Toggle UnorderList(Cmd-Alt-L)'},
+        {name: 'ordered-list', action: toggleOrderedList, shortcut: 'Toggle OrderList(Cmd-L)'},
+        '|',
+
+        {name: 'link', action: drawLink, shortcut: 'Insert Link(Cmd-K)'},
+        {name: 'image', action: drawImage, shortcut: 'Insert Image(Cmd-Alt-I)'},
+        // {name: 'play', action: drawImage, shortcut: 'Insert Video'},
+        // {name: 'music', action: drawImage, shortcut: 'Insert Audio'},
+        // {name: 'code', action: drawImage, shortcut: 'Insert Code(Cmd-Q)'},
+        '|',
+
+        {name: 'undo', action: undo, shortcut: 'Undo'},
+        {name: 'redo', action: redo, shortcut: 'Redo'},
+        {name: 'save', action: saveContent, shortcut: 'Save Content(Cmd-S)'},
+        {name: 'preview', action: togglePreview, shortcut: 'Toggle Preview'},
+        {name: 'fullscreen', action: toggleFullScreen, shortcut: 'Toggle FullScreen'}
+    ];
 
     /**
      * Default markdown render.
@@ -8373,6 +8353,7 @@ layui.define("editor", function (global) {
     Editor.drawImage = drawImage;
     Editor.undo = undo;
     Editor.redo = redo;
+    Editor.save = saveContent;
     Editor.togglePreview = togglePreview;
     Editor.toggleFullScreen = toggleFullScreen;
 
@@ -8406,6 +8387,9 @@ layui.define("editor", function (global) {
     Editor.prototype.redo = function () {
         redo(this);
     };
+    Editor.prototype.save = function () {
+        saveContent(this);
+    };
     Editor.prototype.togglePreview = function () {
         togglePreview(this);
     };
@@ -8413,7 +8397,5 @@ layui.define("editor", function (global) {
         toggleFullScreen(this);
     };
 
-    global.Editor = Editor;
-    exports('editor', {}); //注意，这里是模块输出的核心，模块名必须和use时的模块名一致
-// })(this);
-});
+    this.Editor = Editor;
+})(jQuery);

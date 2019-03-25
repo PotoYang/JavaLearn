@@ -3,13 +3,10 @@
  * Copyright (c) 2011-2013, Christopher Jeffrey. (MIT Licensed)
  * https://github.com/chjj/marked
  */
-
 ;(function () {
-
     /**
      * Block-Level Grammar
      */
-
     var block = {
         newline: /^\n+/,
         code: /^( {4}[^\n]+\n*)+/,
@@ -62,13 +59,11 @@
     /**
      * Normal Block Grammar
      */
-
     block.normal = merge({}, block);
 
     /**
      * GFM Block Grammar
      */
-
     block.gfm = merge({}, block.normal, {
         fences: /^ *(`{3,}|~{3,}) *(\S+)? *\n([\s\S]+?)\s*\1 *(?:\n+|$)/,
         paragraph: /^/
@@ -83,7 +78,6 @@
     /**
      * GFM + Tables Block Grammar
      */
-
     block.tables = merge({}, block.gfm, {
         nptable: /^ *(\S.*\|.*)\n *([-:]+ *\|[-| :]*)\n((?:.*\|.*(?:\n|$))*)\n*/,
         table: /^ *\|(.+)\n *\|( *[-:]+[-| :]*)\n((?: *\|.*(?:\n|$))*)\n*/
@@ -92,7 +86,6 @@
     /**
      * Block Lexer
      */
-
     function Lexer(options) {
         this.tokens = [];
         this.tokens.links = {};
@@ -111,13 +104,11 @@
     /**
      * Expose Block Rules
      */
-
     Lexer.rules = block;
 
     /**
      * Static Lex Method
      */
-
     Lexer.lex = function (src, options) {
         var lexer = new Lexer(options);
         return lexer.lex(src);
@@ -126,7 +117,6 @@
     /**
      * Preprocessing
      */
-
     Lexer.prototype.lex = function (src) {
         src = src
             .replace(/\r\n|\r/g, '\n')
@@ -140,7 +130,6 @@
     /**
      * Lexing
      */
-
     Lexer.prototype.token = function (src, top) {
         var src = src.replace(/^ +$/gm, '')
             , next
@@ -439,7 +428,6 @@
     /**
      * Inline-Level Grammar
      */
-
     var inline = {
         escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
         autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
@@ -500,7 +488,6 @@
     /**
      * GFM + Line Breaks Inline Grammar
      */
-
     inline.breaks = merge({}, inline.gfm, {
         br: replace(inline.br)('{2,}', '*')(),
         text: replace(inline.gfm.text)('{2,}', '*')()
@@ -509,7 +496,6 @@
     /**
      * Inline Lexer & Compiler
      */
-
     function InlineLexer(links, options) {
         this.options = options || marked.defaults;
         this.links = links;
@@ -534,13 +520,11 @@
     /**
      * Expose Inline Rules
      */
-
     InlineLexer.rules = inline;
 
     /**
      * Static Lexing/Compiling Method
      */
-
     InlineLexer.output = function (src, links, options) {
         var inline = new InlineLexer(links, options);
         return inline.output(src);
@@ -549,7 +533,6 @@
     /**
      * Lexing/Compiling
      */
-
     InlineLexer.prototype.output = function (src) {
         var out = ''
             , link
@@ -694,7 +677,6 @@
     /**
      * Compile Link
      */
-
     InlineLexer.prototype.outputLink = function (cap, link) {
         if (cap[0].charAt(0) !== '!') {
             return '<a href="'
@@ -726,7 +708,6 @@
     /**
      * Smartypants Transformations
      */
-
     InlineLexer.prototype.smartypants = function (text) {
         if (!this.options.smartypants) return text;
         return text
@@ -747,7 +728,6 @@
     /**
      * Mangle Links
      */
-
     InlineLexer.prototype.mangle = function (text) {
         var out = ''
             , l = text.length
@@ -768,7 +748,6 @@
     /**
      * Parsing & Compiling
      */
-
     function Parser(options) {
         this.tokens = [];
         this.token = null;
@@ -778,7 +757,6 @@
     /**
      * Static Parse Method
      */
-
     Parser.parse = function (src, options) {
         var parser = new Parser(options);
         return parser.parse(src);
@@ -787,7 +765,6 @@
     /**
      * Parse Loop
      */
-
     Parser.prototype.parse = function (src) {
         this.inline = new InlineLexer(src.links, this.options);
         this.tokens = src.reverse();
@@ -803,7 +780,6 @@
     /**
      * Next Token
      */
-
     Parser.prototype.next = function () {
         return this.token = this.tokens.pop();
     };
@@ -811,7 +787,6 @@
     /**
      * Preview Next Token
      */
-
     Parser.prototype.peek = function () {
         return this.tokens[this.tokens.length - 1] || 0;
     };
@@ -819,7 +794,6 @@
     /**
      * Parse Text Tokens
      */
-
     Parser.prototype.parseText = function () {
         var body = this.token.text;
 
@@ -833,7 +807,6 @@
     /**
      * Parse Current Token
      */
-
     Parser.prototype.tok = function () {
         switch (this.token.type) {
             case 'space': {
@@ -990,7 +963,6 @@
     /**
      * Helpers
      */
-
     function escape(html, encode) {
         return html
             .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
@@ -1037,7 +1009,6 @@
     /**
      * Marked
      */
-
     function marked(src, opt, callback) {
         if (callback || typeof opt === 'function') {
             if (!callback) {
@@ -1119,7 +1090,6 @@
     /**
      * Options
      */
-
     marked.options =
         marked.setOptions = function (opt) {
             merge(marked.defaults, opt);
@@ -1142,7 +1112,6 @@
     /**
      * Expose
      */
-
     marked.Parser = Parser;
     marked.parser = Parser.parse;
 

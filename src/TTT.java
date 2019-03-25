@@ -1,9 +1,12 @@
 import com.google.gson.Gson;
+import org.apache.commons.codec.binary.Hex;
 import org.junit.Test;
 
 import java.io.*;
 import java.lang.reflect.Field;
 import java.math.BigInteger;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
@@ -609,5 +612,38 @@ public class TTT {
         ArrayList arrayList = new ArrayList();
         ListIterator listIterator = arrayList.listIterator();
         listIterator.previous();
+    }
+
+    @Test
+    public void testReadFile() {
+        try {
+            File file = new File("F:/视频/无法成为野兽的我们[3].mp4");
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            long length = (int) file.length();
+            int start = (int) (length * 0.4);
+            int end = (int) (length * 0.5);
+
+//            FileInputStream inputStream = new FileInputStream(file);
+//            byte[] bytes = new byte[5 << 20];
+//            int count = inputStream.read(bytes, 0, 5 << 20);
+//            messageDigest.update(bytes);
+
+            int BUFFER_SIZE = 5 << 20;
+            int bufferCount = 1 + (end - start) / BUFFER_SIZE;
+            MappedByteBuffer[] buffers = new MappedByteBuffer[bufferCount];
+            long remaining = end - start;
+            for (int i = 0; i < bufferCount; i++) {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
+                buffers[i] = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY,
+                        start + i * BUFFER_SIZE, Math.min(remaining, BUFFER_SIZE));
+                messageDigest.update(buffers[i]);
+                remaining -= BUFFER_SIZE;
+            }
+
+//            System.out.println(count);
+            System.out.println(new String(Hex.encodeHex(messageDigest.digest())));
+        } catch (IOException | NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 }
