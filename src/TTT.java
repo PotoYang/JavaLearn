@@ -646,4 +646,27 @@ public class TTT {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testFile() {
+        File file = new File("F:/test/1.txt");
+        A(file);
+        B(file);
+    }
+
+    private void A(File file) {
+        try {
+            byte[] data = new byte[]{'a', 'b', 'c', 'd'};
+            FileOutputStream outputStream = new FileOutputStream(file);
+            outputStream.write(data);
+            outputStream.flush();
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void B(File file) {
+        System.out.println(file.length());
+    }
 }
