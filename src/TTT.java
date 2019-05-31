@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.*;
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
@@ -668,5 +669,54 @@ public class TTT {
 
     private void B(File file) {
         System.out.println(file.length());
+    }
+
+    @Test
+    public void testDoubleListAdd() {
+        List<Double> list = Arrays.asList(3.0, 4.0, 12.55, 13.22, 11.11, 3.0, 4.0, 12.55, 13.22, 11.11, 3.0, 4.0, 12.55, 13.22, 11.11, 3.0, 4.0, 12.55, 13.22, 11.11);
+
+        List<BigDecimal> bigDecimalList = Arrays.asList(
+                new BigDecimal(3.0), new BigDecimal(4.0), new BigDecimal(12.55), new BigDecimal(13.22), new BigDecimal(11.11),
+                new BigDecimal(3.0), new BigDecimal(4.0), new BigDecimal(12.55), new BigDecimal(13.22), new BigDecimal(11.11),
+                new BigDecimal(3.0), new BigDecimal(4.0), new BigDecimal(12.55), new BigDecimal(13.22), new BigDecimal(11.11),
+                new BigDecimal(3.0), new BigDecimal(4.0), new BigDecimal(12.55), new BigDecimal(13.22), new BigDecimal(11.11));
+        List<Double> list1 = list.subList(0, 5);
+        System.out.println(list1.stream().reduce(Double::sum));
+        List<Double> list2 = list.subList(5, 10);
+        System.out.println(list1.stream().reduce(Double::sum));
+        List<Double> list3 = list.subList(10, 15);
+        System.out.println(list1.stream().reduce(Double::sum));
+        List<Double> list4 = list.subList(15, 20);
+        System.out.println(list1.stream().reduce(Double::sum).get()
+                + list2.stream().reduce(Double::sum).get()
+                + list3.stream().reduce(Double::sum).get()
+                + list4.stream().reduce(Double::sum).get());
+        List<BigDecimal> bigDecimalList1 = bigDecimalList.subList(0, 5);
+        System.out.println(bigDecimalList1.stream().reduce(BigDecimal::add));
+        System.out.println(bigDecimalList.stream().reduce(BigDecimal::add));
+    }
+
+    @Test
+    public void testTimeFormat() {
+        String assetid = "000007550010021100000078";
+        int length = assetid.length();
+        Integer videoId = Integer.parseInt(assetid.substring(length - 9, length));
+        System.out.println(videoId);
+    }
+
+    @Test
+    public void testVideoInfoGet() {
+        VideoInfoUtils.getVideoInfoByXuggler("F:/test/100029263.ts");
+    }
+
+    @Test
+    public void testStringReplace() {
+        StringBuilder s = new StringBuilder("11111000");
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '0') {
+                System.out.println(i + " is 0.");
+                break;
+            }
+        }
     }
 }
